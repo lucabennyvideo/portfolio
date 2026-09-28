@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luca Benedetti — Filmmaker & Video Production</title>
+  <meta name="description" content="Videomaker freelance a Sassuolo, Modena e Reggio Emilia. Video puliti, minimali e orientati alla chiarezza del messaggio." />
+  
+  <!-- Font Inter da Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0c0d0e;
+      --card-bg: #141618;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.2);
+      --text: #f0f0f2;
+      --text-muted: #8e9297;
+      --accent: #ffffff;
+      --radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 13, 14, 0.75);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand span {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 0.85rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+    }
+
+    .badge-loc {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .badge-loc::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      max-width: 900px;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #0c0d0e;
+    }
+
+    .btn-primary:hover {
+      background: #e2e2e2;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin: 80px 0 100px;
+      padding: 30px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Titles */
+    .section-head {
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* Video Portfolio Grid (16:9) */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-bottom: 120px;
+    }
+
+    .work-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .work-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .work-info {
+      padding: 24px;
+    }
+
+    .work-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .work-info h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .work-info p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Vertical Reels Grid (9:16) */
+    .vertical-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 120px;
+    }
+
+    .reel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .reel-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .reel-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 177.77%; /* 9:16 */
+      background: #050505;
+    }
+
+    .reel-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .reel-info {
+      padding: 16px;
+    }
+
+    .reel-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .reel-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Process / Services */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 120px;
+    }
+
+    .step-card {
+      padding: 32px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .step-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      display: inline-block;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+    }
+
+    .step-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .step-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* About Section */
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 48px;
+      margin-bottom: 120px;
+    }
+
+    .about-img {
+      width: 100%;
+      height: 440px;
+      background: #1b1e22;
+      border-radius: 8px;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      font-weight: 300;
+    }
+
+    /* Contact Section */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 80px 0 120px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-info h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-size: 1.05rem;
+    }
+
+    .direct-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .direct-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .direct-links a:hover {
+      color: #3b82f6;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+      transition: var(--transition);
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--text);
+      background: #181a1c;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .about-box {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+      .about-img {
+        height: 300px;
+      }
+      .contact-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      nav {
+        display: none; /* Mobile menu essenziale */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <div class="brand">
+        LUCA BENEDETTI <span>/ FILMMAKER</span>
+      </div>
+      <nav>
+        <a href="#lavori">Progetti</a>
+        <a href="#social">Verticali</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#chi-sono">Chi sono</a>
+        <a href="#contatti">Contattami</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="badge-loc">Sassuolo · Modena · Reggio Emilia</div>
+      <h1>Video che vanno dritti al punto.<br>Senza fuffa, senza drammi sul set.</h1>
+      <p>Curo riprese, montaggio e ritmo per brand, aziende e professionisti che vogliono farsi capire al primo sguardo. E con un vantaggio non trascurabile: lavorare insieme non è un supplizio.</p>
+      
+      <div class="hero-actions">
+        <a href="#lavori" class="btn btn-primary">Guarda i lavori</a>
+        <a href="#contatti" class="btn btn-secondary">Parliamo del progetto</a>
+      </div>
+    </section>
+
+    <!-- Stat Strip -->
+    <section class="stats-strip">
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Zero gergo tecnico incomprensibile</p>
+      </div>
+      <div class="stat-item">
+        <h3>1</h3>
+        <p>Unico referente, dall'idea all'esportazione</p>
+      </div>
+      <div class="stat-item">
+        <h3>360°</h3>
+        <p>Dallo storyboard ai formati per i social</p>
+      </div>
+    </section>
+
+    <!-- Selected Works (16:9) -->
+    <section id="lavori">
+      <div class="section-head">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Progetti Selezionati</h2>
+      </div>
+
+      <div class="video-grid">
+        <!-- Progetto 1 -->
+        <article class="work-card">
+          <div class="video-wrapper">
+            <!-- Sostituisci con il link iframe del tuo video Vimeo o YouTube -->
+            <iframe src="https://player.vimeo.com/video/76979871?h=8272103f6e&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span>Corporate / Industria</span>
+              <span>2026</span>
+            </div>
+            <h3>Racconto Industriale & Know-How</h3>
+            <p>Sintetizzare il valore della produzione meccanica ed estetica in 90 secondi che tengono incollati allo schermo, senza annoiare.</p>
+          </div>
+        </article>
+
+        <!-- Progetto 2 -->
+        <article class="work-card">
+          <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/76979871?h=8272103f6e&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span>Design & Architettura</span>
+              <span>2025</span>
+            </div>
+            <h3>Superfici e Geometrie di Design</h3>
+            <p>Luci radenti e movimenti camera minimi per esaltare i materiali ceramici e la precisione architettonica.</p>
+          </div>
+        </article>
+
+        <!-- Progetto 3 -->
+        <article class="work-card">
+          <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/76979871?h=8272103f6e&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="work-info">
+            <div class="work-meta">
+              <span>Brand Story</span>
+              <span>2025</span>
+            </div>
+            <h3>L'Atelier Artigianale</h3>
+            <p>Intervista senza copioni rigidi e dettagli ravvicinati del lavoro manuale per restituire autenticità e autorevolezza.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Social Reels (9:16) -->
+    <section id="social">
+      <div class="section-head">
+        <span class="section-tag">Format Social</span>
+        <h2 class="section-title">Contenuti Verticali</h2>
+      </div>
+
+      <div class="vertical-grid">
+        <!-- Reel 1 -->
+        <div class="reel-card">
+          <div class="reel-wrapper">
+            <!-- Inserisci iframe Reel o video mp4 in loop -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+          </div>
+          <div class="reel-info">
+            <h4>Dietro le quinte del set</h4>
+            <p>Come gestire la luce naturale in 15 secondi.</p>
+          </div>
+        </div>
+
+        <!-- Reel 2 -->
+        <div class="reel-card">
+          <div class="reel-wrapper">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+          </div>
+          <div class="reel-info">
+            <h4>Product Reveal Rapido</h4>
+            <p>Dettagli macro e sound design ritmato.</p>
+          </div>
+        </div>
+
+        <!-- Reel 3 -->
+        <div class="reel-card">
+          <div class="reel-wrapper">
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+          </div>
+          <div class="reel-info">
+            <h4>Pillola di Comunicazione</h4>
+            <p>Perché i primi 3 secondi fanno la differenza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Metodo / Servizi -->
+    <section id="metodo">
+      <div class="section-head">
+        <span class="section-tag">Metodo</span>
+        <h2 class="section-title">Come lavoro</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="step-card">
+          <span class="step-num">01 / Concept</span>
+          <h3>Capire prima di accendere la camera</h3>
+          <p>Definiamo l'obiettivo, chi deve guardare il video e cosa scartare. Il segreto di un bel video è quasi sempre decidere cosa NON metterci.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02 / Set</span>
+          <h3>Sul set senza ansie</h3>
+          <p>Luci controllate, audio limpido e una gestione rilassata delle persone: nessuno deve sentirsi sotto interrogatorio davanti all'obiettivo.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03 / Editing</span>
+          <h3>Sottrazione e ritmo</h3>
+          <p>Montaggio chirurgico, sound design che sostiene il racconto e zero effetti speciali messi lì a caso per tappare i buchi.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">04 / Delivery</span>
+          <h3>Consegna senza mal di testa</h3>
+          <p>Color grading calibrata e file esportati pronti per l'uso: orizzontali per il sito, verticali per Instagram e LinkedIn.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chi sono -->
+    <section id="chi-sono">
+      <div class="about-box">
+        <!-- Sostituisci questo placeholder con il tag: <img src="tua-foto.jpg" alt="Luca Benedetti" class="about-img"> -->
+        <div class="about-img">
+          [Carica qui la tua foto ritratto: foto-luca.jpg]
+        </div>
+        <div class="about-text">
+          <span class="section-tag">Chi sono</span>
+          <h3>"Ciao, sono Luca."</h3>
+          <p>Lavoro tra Sassuolo, Modena e Reggio Emilia con una convinzione semplice: la maggior parte dei video promozionali è troppo lunga, noiosa o concentrata sull'ego di chi sta dietro la camera.</p>
+          <p>Il mio approccio è l'opposto: togliere il superfluo, far parlare il prodotto o la persona e costruire immagini pulite che rimangano impresse.</p>
+          <p>Prendo il lavoro maledettamente sul serio — tempi rispettati, budget trasparenti, precisione millimetrica — ma non mi prendo troppo sul serio io. Se cerchi qualcuno con cui lavorare senza stress e farsi due risate a fine set, andiamo d'accordo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contatti -->
+    <section id="contatti" class="contact-wrap">
+      <div class="contact-info">
+        <span class="section-tag">Contatti</span>
+        <h2>Parliamo del tuo prossimo video.</h2>
+        <p>Hai un'idea o ti serve una mano a fare ordine? Scrivimi due righe. Rispondo entro 24 ore, anche solo per dirti onestamente se ha senso girare un video o no.</p>
+        
+        <div class="direct-links">
+          <a href="mailto:ciao@lucabenedetti.it">✉ ciao@lucabenedetti.it</a>
+          <a href="https://wa.me/393330000000" target="_blank" rel="noopener">💬 Scrivimi su WhatsApp</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener">↗ Instagram</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener">↗ LinkedIn</a>
+        </div>
+      </div>
+
+      <!-- Form Contatto -->
+      <form action="https://formspree.io/f/tuo-id-formspree" method="POST">
+        <div class="form-group">
+          <label for="name">Il tuo nome</label>
+          <input type="text" id="name" name="name" placeholder="Mario Rossi" required />
+        </div>
+        <div class="form-group">
+          <label for="email">La tua email</label>
+          <input type="email" id="email" name="email" placeholder="mario@azienda.it" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Raccontami brevemente cosa hai in mente</label>
+          <textarea id="message" name="message" placeholder="Che tipo di video vorresti fare, tempistiche o budget indicativo..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 8px;">Invia messaggio</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Luca Benedetti — Filmmaker · Sassuolo (MO) · P.IVA 00000000000</p>
+    </div>
+  </footer>
+
+</body>
+</html>
